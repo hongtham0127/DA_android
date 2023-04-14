@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Ngày  :"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteY="80dp" />
+    <Button
+        android:id="@+id/btn_thoigian"
+        android:hint=""
+        android:layout_width="293dp"
+        android:layout_height="32dp"
+        android:background="@android:color/holo_orange_dark"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="67dp" />
+
+    <TextView
+        android:id="@+id/tv_ghichu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ghi Chú :"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteY="123dp" />
+    <EditText
+        android:id="@+id/edit_ghichu"
+        android:layout_width="293dp"
+        android:layout_height="32dp"
+        android:background="drawable/bor"
+        android:hint="Chưa Nhập Vào "
+        android:textColorHint="@color/black"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="110dp" />
+    <TextView
+        android:id="@+id/tv_tienthu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ghi Chú :"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteY="163dp" />
+
+    <EditText
+        android:id="@+id/edit_tienthu"
+        android:layout_width="293dp"
+        android:layout_height="32dp"
+        android:hint="  0 "
+        android:background="@android:color/holo_orange_dark"
+        android:textColorHint="@color/black"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="34dp"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:text="đ"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="375dp"
+        tools:layout_editor_absoluteY="150dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

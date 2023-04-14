@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sign_up"
+            android:text="Sign Up"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:layout_margin="50dp"
+            android:gravity="center"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/email"
+            android:layout_below="@id/sign_up"
+            android:background="#30FF0000"
+            android:hint="Email"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_margin="20dp"
+            android:padding="20dp"
+            android:drawableLeft="@drawable/baseline_login_24"
+            android:drawablePadding="20dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/password"
+            android:layout_below="@id/email"
+            android:background="#30FF0000"
+            android:hint="Password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_margin="20dp"
+            android:padding="20dp"
+            android:drawableLeft="@drawable/baseline_assignment_turned_in_24"
+            android:drawablePadding="20dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/xacnhan_mk"
+            android:layout_below="@id/password"
+            android:background="#30FF0000"
+            android:hint="Confirm password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_margin="20dp"
+            android:padding="20dp"
+            android:drawableLeft="@drawable/baseline_check_24"
+            android:drawablePadding="20dp" />
+
+
+        <Button
+            android:id="@+id/btnCreate_Account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@android:color/holo_orange_light"
+            android:padding="20dp"
+            android:text="Create Account"
+            android:textColor="@color/black"/>
+
+
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

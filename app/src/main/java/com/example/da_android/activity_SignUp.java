@@ -1,5 +1,8 @@
 package com.example.da_android;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,18 +11,18 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-public class activity_Register extends AppCompatActivity {
-
+public class activity_SignUp extends AppCompatActivity {
     EditText email,password,xacnhan_mk;
     Button btn_sign_up;
     ProgressBar progressBar;
+    Context context;
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_create_account);
+        setContentView(R.layout.activity_sign_up);
+        context = this;
+
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         xacnhan_mk = findViewById(R.id.xacnhan_mk);
@@ -31,21 +34,18 @@ public class activity_Register extends AppCompatActivity {
             {
                 if(email.getText().length() !=0 && password.getText().length() !=0 &&xacnhan_mk.getText()==password.getText())
                 {
-                    Toast.makeText(activity_Register.this,"Đăng Ký Thành Công",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(activity_Register.this,activity_login.class);
-                    startActivities(intent);
+                    Toast.makeText(context,"Đăng Ký Thành Công",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context,activity_login.class);
+                    startActivity(intent);
                 }
                 else
                 {
-                    Toast.makeText(activity_Register.this,"Đăng Ký thất bại",Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(activity_Register.this,null);
-                    //startActivities(intent);
+                    Toast.makeText(context,"Đăng Ký thất bại",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context,null);
+                    startActivity(intent);
                 }
 
             }
         });
-    }
-
-    private void startActivities(Intent intent) {
     }
 }

@@ -8,7 +8,7 @@
         android:id="@+id/btn_nhap"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background=""
+        android:background="@color/white"
         android:drawableTop="@drawable/baseline_nhap"
         android:textColor="@color/black"
         android:text="Nhập"/>
@@ -18,7 +18,7 @@
         android:id="@+id/btn_lich_footer"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background=""
+        android:background="@color/white"
         android:drawableTop="@drawable/baseline_calendar_month_24"
         android:textColor="@color/black"
         android:text="Lịch"/>
@@ -27,7 +27,7 @@
         android:id="@+id/btn_baocao"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background=""
+        android:background="@color/white"
         android:drawableTop="@drawable/baseline_pie_chart_24"
         android:textColor="@color/black"
         android:text="Báo Cáo"/>
@@ -35,10 +35,9 @@
         android:id="@+id/btn_khac"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background=""
+        android:background="@color/white"
         android:drawableTop="@drawable/baseline_khac"
         android:textColor="@color/black"
         android:text="Khác"/>
 
-        />
 </LinearLayout>

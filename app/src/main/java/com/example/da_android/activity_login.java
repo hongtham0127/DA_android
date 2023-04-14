@@ -1,6 +1,7 @@
 package com.example.da_android;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,10 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButton;
 
 public class activity_login extends AppCompatActivity {
-    private void startActivities(Intent intent) {
-    }
+    Context context;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_login);
 
@@ -30,8 +31,8 @@ public class activity_login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(activity_login.this,"đăng ký tài khoản",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(activity_login.this,activity_Register.class);
-                startActivities(intent);
+                Intent intent = new Intent(context,activity_SignUp.class);
+                startActivity(intent);
             }
         });
         //admin
@@ -49,8 +50,8 @@ public class activity_login extends AppCompatActivity {
 
                         Toast.makeText(activity_login.this,"Đăng Nhập Thành Công ",Toast.LENGTH_SHORT).show();
                         //--Intent dùng để chuyển từ trang hiện tại qua trang muốn đến (hiên tại.this,muốn đến.class)
-                        //Intent intent = new Intent(activity_login.this,trang chủ);
-                        //startActivities(intent);
+                        Intent intent = new Intent(context,activity_input_main.class);
+                        startActivity(intent);
                     }
                     else {
 

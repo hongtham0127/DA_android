@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".InputTypeChiFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Ngày :"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/btn_thoigian"
+                android:layout_width="250dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="#EDE9E1"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/tv_ghichu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Ghi Chú :"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/edit_ghichu"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/white"
+                android:hint="Chưa Nhập Vào "
+                android:textColorHint="#292929"
+                android:textSize="20dp" />
+        </TableRow>
+
+
+        <TableRow android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/tv_tienthu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Tiền chi :"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/edit_tienthu"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="#EDE9E1"
+                android:hint="  0 "
+                android:textColorHint="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="đ"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh mục"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"/>
+        </TableRow>
+    </TableLayout>
+
+    <GridView
+        android:id="@+id/gv_danhmuc"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:numColumns="4"
+        android:translationY="180dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_input"
+        android:text="Nhập khoản Tiền chi"
+        android:textColor="@color/white"
+        android:translationY="500dp"
+         />
+</FrameLayout>

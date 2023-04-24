@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GirdViewAdapter extends BaseAdapter {
@@ -19,6 +20,7 @@ public class GirdViewAdapter extends BaseAdapter {
         this.layout = layout;
         this.hinhAnhList = hinhAnhList;
     }
+
 
 
     @Override

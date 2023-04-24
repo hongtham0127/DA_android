@@ -50,7 +50,7 @@ public class activity_login extends AppCompatActivity {
 
                         Toast.makeText(activity_login.this,"Đăng Nhập Thành Công ",Toast.LENGTH_SHORT).show();
                         //--Intent dùng để chuyển từ trang hiện tại qua trang muốn đến (hiên tại.this,muốn đến.class)
-                        Intent intent = new Intent(context,activity_input_main.class);
+                        Intent intent = new Intent(context,MainActivity.class);
                         startActivity(intent);
                     }
                     else {

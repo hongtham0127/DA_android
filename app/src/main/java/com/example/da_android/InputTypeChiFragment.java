@@ -92,12 +92,6 @@ public class InputTypeChiFragment extends Fragment {
             }
         });
 
-        gvDanhMuc = view.findViewById(R.id.gv_danhmuc);
-
-        String[] item = {"âa","bbb"};
-
-        gvDanhMuc.setAdapter( new CustomGridAdapter(getActivity(), item));
-
         return view;
     }
 }

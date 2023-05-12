@@ -8,19 +8,67 @@
     tools:context=".InputFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/top_nav_type"
+    <LinearLayout
+        android:id="@+id/header_nav_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:background="#FF5722"
-        app:itemTextColor="@color/white"
-        app:menu="@menu/menu_top_nav_type" />
+        android:gravity="center"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:weightSum="4">
+        <LinearLayout
+            android:id="@+id/type_chi_layout"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:background="@drawable/header_type"
+            android:weightSum="1"
+            >
+            <TextView
+                android:id="@+id/txt_type_chi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiền chi"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#FF5722"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/type_thu_layout"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:background="@drawable/header_type"
+            android:weightSum="2">
+            <TextView
+                android:id="@+id/txt_type_thu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiền thu"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#FF5722"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/frame_container_input"
         android:layout_width="match_parent"
         android:layout_height="670dp"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="bottom">
+
+    </FrameLayout>
+
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/top_nav_type"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="top"-->
+<!--        android:background="#FF5722"-->
+<!--        app:itemTextColor="@color/white"-->
+<!--        app:menu="@menu/menu_top_nav_type" />-->
+
 
 </FrameLayout>

@@ -5,8 +5,8 @@
     android:id="@+id/StatisticalCalendarLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".StatisticalCalendarFragment">
+    android:background="#E6E6E6"
+    tools:context=".fragment.StatisticalCalendarFragment">
 
     <LinearLayout
         android:id="@+id/head"
@@ -17,117 +17,137 @@
             android:layout_height="wrap_content"
             android:text="Lịch"
             android:textColor="@color/black"
-            android:textSize="40dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="160dp"/>
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            />
 
         <ImageButton
-            android:id="@+id/search"
+            android:id="@+id/btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="125dp"
             android:layout_gravity="center"
-            android:src="@drawable/baseline_search_24" />
+            android:layout_marginLeft="300dp"
+            android:background="@drawable/baseline_search_24"
+            android:backgroundTint="#FF5722" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
         android:paddingTop="8dp"
+        android:background="@color/white"
         android:paddingBottom="8dp">
 
         <ImageButton
             android:id="@+id/btn_back"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/baseline_navigate_before_24" />
-        <TextView
+            android:background="@drawable/baseline_navigate_before_24"
+            android:backgroundTint="#FF5722"/>
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#FFF9C7"
             android:gravity="center"
-            android:layout_marginTop="4dp"
-            android:text="aaaaaaaaaaaaaaaaa"
-            android:textColor="@color/black"
-            android:layout_weight="3"/>
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/txt_currentDate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="CurrentDate"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/txt_rangeDate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text=" (RangeDate)"
+                android:textSize="11dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
 
         <ImageButton
             android:id="@+id/btn_next"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/baseline_navigate_next_24" />
+            android:background="@drawable/baseline_navigate_next_24"
+            android:backgroundTint="#FF5722"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp">
+        android:layout_marginTop="100dp"
+        android:background="@color/white"
+        android:paddingTop="4dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="T2"
-            android:textColor="@color/black"
-            android:background="#D1CDCD"
-            android:layout_marginTop="100dp"
-            android:layout_weight="1"
+            android:textColor="@color/white"
             android:textStyle="bold"
+            android:background="@android:color/darker_gray"
+            android:layout_weight="1"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="T3"
-            android:textColor="@color/black"
-            android:background="#D1CDCD"
-            android:layout_marginTop="100dp"
-            android:layout_weight="1"
+            android:textColor="@color/white"
             android:textStyle="bold"
+            android:background="@android:color/darker_gray"
+            android:layout_weight="1"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="T4"
-            android:textColor="@color/black"
-            android:background="#D1CDCD"            android:layout_marginTop="100dp"
-            android:layout_weight="1"
+            android:textColor="@color/white"
             android:textStyle="bold"
+            android:background="@android:color/darker_gray"
+            android:layout_weight="1"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="T5"
-            android:textColor="@color/black"
-            android:background="#D1CDCD"            android:layout_marginTop="100dp"
-            android:layout_weight="1"
+            android:textColor="@color/white"
             android:textStyle="bold"
+            android:background="@android:color/darker_gray"
+            android:layout_weight="1"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="T6"
-            android:textColor="@color/black"
-            android:background="#D1CDCD"            android:layout_marginTop="100dp"
-            android:layout_weight="1"
+            android:textColor="@color/white"
             android:textStyle="bold"
+            android:background="@android:color/darker_gray"
+            android:layout_weight="1"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="T7"
-            android:textColor="@android:color/holo_blue_light"
-            android:background="#D1CDCD"
-            android:layout_marginTop="100dp"
-            android:layout_weight="1"
+            android:textColor="#188DB8"
             android:textStyle="bold"
+            android:background="@android:color/darker_gray"
+            android:layout_weight="1"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -136,19 +156,96 @@
             android:text="CN"
             android:textColor="@android:color/holo_red_dark"
             android:background="@android:color/darker_gray"
-            android:layout_marginTop="100dp"
             android:layout_weight="1"
             android:textStyle="bold"
             />
     </LinearLayout>
 
     <GridView
-        android:id="@+id/gridView_lich"
+        android:id="@+id/gv_lich"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginTop="124dp"
+        android:background="#E6E6E6"
+        android:padding="1dp"
+        android:horizontalSpacing="2dp"
+        android:verticalSpacing="2dp"
+        android:numColumns="7" ></GridView>
+
+    <LinearLayout
+        android:id="@+id/statistics_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="363dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:padding="2dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiền thu"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/txt_tong_thu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0đ"
+                android:textColor="#002BFF" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiền chi"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/txt_tong_chi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0đ"
+                android:textColor="#FF0000" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tổng tiền"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/txt_tong_tien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0đ"
+                android:textColor="#FF0000"/>
+        </LinearLayout>
+    </LinearLayout>
+    <GridView
+        android:id="@+id/gv_display_transaction"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="130dp"
-        android:background="@color/black"
-        android:numColumns="7"></GridView>
-
+        android:layout_marginTop="405dp"
+        android:layout_marginBottom="60dp"
+        android:numColumns="1"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        android:verticalSpacing="2dp"/>
 
 </FrameLayout>

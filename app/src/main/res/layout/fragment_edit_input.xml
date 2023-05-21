@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.EditInputFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Ngày :"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/btn_thoigian_edit"
+                android:layout_width="250dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="#EDE9E1"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/tv_ghichu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Ghi Chú :"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/edit_ghichu"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/white"
+                android:hint="Chưa Nhập Vào "
+                android:textColorHint="#292929"
+                android:textSize="20dp" />
+        </TableRow>
+
+
+        <TableRow android:layout_margin="5dp">
+            <TextView
+                android:id="@+id/tv_tien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Tiền :"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/edit_tien"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="#EDE9E1"
+                android:hint="0"
+                android:textColorHint="#292929"
+                android:inputType="number"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="đ"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh mục"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"/>
+        </TableRow>
+    </TableLayout>
+
+    <GridView
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/gv_danhmuc_eidt"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:numColumns="4"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="20dp"
+        android:translationY="180dp"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        />
+
+    <Button
+        android:id="@+id/btn_edit_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_input"
+        android:text="Ghi đè"
+        android:textColor="@color/white"
+        android:translationY="580dp"
+        />
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="#E6E6E6"
+        android:translationY="650dp"
+        android:text="Xóa"
+        android:textSize="15dp"
+        android:textColor="#FF5722"/>
+</FrameLayout>

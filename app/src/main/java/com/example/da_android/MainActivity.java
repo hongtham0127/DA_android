@@ -39,10 +39,14 @@ public class MainActivity extends AppCompatActivity{
                     case R.id.btn_baocao:
                         view_Pager.setCurrentItem(2);
                         break;
+                    case R.id.btn_khac:
+                        view_Pager.setCurrentItem(3);
+                        break;
                 }
                 return true;
             }
         });
+
     }
 
     private void setUpViewPager() {

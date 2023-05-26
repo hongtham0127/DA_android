@@ -13,4 +13,18 @@
     <color name="pale_violet_red">#A80037</color>
     <color name="medium_purple">#AA9DC5</color>
     <color name="red_dark">#6B0000</color>
+
+    <color name="red">#FF0000</color>
+    <color name="slateblue">#FF4E6B8B</color>
+    <color name="limegreen">#FF9ACD32</color>
+    <color name="chocolate">#FFD2691E</color>
+    <color name="lawngreen">#FF32CD32</color>
+    <color name="mediumseagreen">#FF3CB371</color>
+    <color name="mediumorchid">#FFBA55D3</color>
+    <color name="mediumslateblue">#FF9370DB</color>
+    <color name="darkturquoise">#FF00CED1</color>
+    <color name="deeppink">#FFFF1493</color>
+    <color name="crimson">#FFDC143C</color>
+    <color name="powderblue">#FFB0E0E6</color>
+    <color name="purple">#FF800080</color>
 </resources>

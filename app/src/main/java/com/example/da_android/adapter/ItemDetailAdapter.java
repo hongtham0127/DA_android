@@ -18,6 +18,7 @@ import androidx.core.widget.ImageViewCompat;
 import com.example.da_android.DB;
 import com.example.da_android.activity.EditInputActivity;
 import com.example.da_android.R;
+import com.example.da_android.activity.ReportDetailActivity;
 import com.example.da_android.model.CategoryItem;
 import com.example.da_android.model.Transaction;
 
@@ -148,8 +149,8 @@ public class ItemDetailAdapter extends BaseAdapter {
                 if (viewCategory != null)
                 {
 //                    báo cáo biểu đồ cột
-                    Intent intent = new Intent(context, EditInputActivity.class);
-                    intent.putExtra("itemTransaction", item);
+                    Intent intent = new Intent(context, ReportDetailActivity.class);
+                    intent.putExtra("itemReportDetail", item);
                     context.startActivity(intent);
                 }
                 else

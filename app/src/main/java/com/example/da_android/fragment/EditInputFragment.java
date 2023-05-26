@@ -1,7 +1,6 @@
 package com.example.da_android.fragment;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,6 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.da_android.DB;
-import com.example.da_android.MainActivity;
 import com.example.da_android.R;
 import com.example.da_android.adapter.ItemCategoryAdapter;
 import com.example.da_android.model.CategoryItem;
@@ -207,7 +205,8 @@ public class EditInputFragment extends Fragment {
                 transaction.setTrxDate(btn_lich.getText().toString());
                 db.updateTransaction(transaction);
                 Toast.makeText(getActivity(), "Chỉnh sửa thành công", Toast.LENGTH_SHORT).show();
-                back();
+                Toast.makeText(getActivity(), "Vui lòng load lại", Toast.LENGTH_SHORT).show();
+                getActivity().finish();
             }
         });
 
@@ -216,14 +215,10 @@ public class EditInputFragment extends Fragment {
             public void onClick(View v) {
                 db.deleteTransaction(transaction);
                 Toast.makeText(getActivity(), "Xóa thành công", Toast.LENGTH_SHORT).show();
-                back();
+                Toast.makeText(getActivity(), "Vui lòng load lại", Toast.LENGTH_SHORT).show();
+                getActivity().finish();
             }
         });
         return view;
-    }
-    private void back()
-    {
-        Intent intent = new Intent(getActivity(), MainActivity.class);
-        startActivity(intent);
     }
 }

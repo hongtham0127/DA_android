@@ -116,6 +116,7 @@ public class InputTypeThuFragment extends Fragment {
             public void onCategoryDataLoaded(ArrayList<CategoryItem> list) {
                 ItemCategoryAdapter adapter = new ItemCategoryAdapter(getActivity(), R.layout.layout_item_danhmuc, list, "Thu", null);
                 gvDanhMuc.setAdapter(adapter);
+                ctg_selected = list.get(0);
             }
 
             @Override
@@ -159,7 +160,15 @@ public class InputTypeThuFragment extends Fragment {
 
                     final String idCtg = ctg_selected.getIdCtg();
                     final String ghiChu = edit_ghichu.getText().toString();
-                    final int tienThu = Integer.parseInt(edit_tienthu.getText().toString());
+                    final int tienThu;
+                    if(edit_tienthu.getText().toString().equals(""))
+                    {
+                        tienThu =0;
+                    }
+                    else
+                    {
+                        tienThu = Integer.parseInt(edit_tienthu.getText().toString());
+                    }
                     SharedPreferences sharedPref = getActivity().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
                     final String username = sharedPref.getString("username", null);
                     String trxDate = btn_lich.getText().toString();

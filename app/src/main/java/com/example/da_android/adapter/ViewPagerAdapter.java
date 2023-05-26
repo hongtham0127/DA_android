@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.example.da_android.fragment.OtherFragment;
 import com.example.da_android.fragment.InputFragment;
 import com.example.da_android.fragment.ReportFragment;
 import com.example.da_android.fragment.StatisticalCalendarFragment;
@@ -24,6 +25,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                 return new StatisticalCalendarFragment();
             case 2:
                 return new ReportFragment();
+            case 3:
+                return new OtherFragment();
             default:
                 return new InputFragment();
         }

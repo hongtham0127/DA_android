@@ -102,6 +102,21 @@ public class DB {
                     }
                 });
     }
+    public void deleteAllTransaction(){
+        databaseReference.child("TRANSACTION")
+                .removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
+    }
     public void updateTransaction(Transaction transaction) {
         databaseReference.child("TRANSACTION")
                 .child(transaction.getIdTrx())
@@ -214,14 +229,15 @@ public class DB {
     }
     public void addAllCategory() {
         String idCtg = "CTG";
-        addCategory(new CategoryItem(idCtg,"Phí đi lại", R.drawable.ctg_directions_bus_24, "Chi", R.color.teal_200));
+        addCategory(new CategoryItem(idCtg,"Phí đi lại", R.drawable.ctg_directions_bus_24, "Chi", R.color.medium_purple));
         addCategory(new CategoryItem(idCtg+"1","Ăn uống", R.drawable.ctg_restaurant_24, "Chi", R.color.holo_orange_dark));
         addCategory(new CategoryItem(idCtg+"2","Mua sắm", R.drawable.baseline_shopping_cart_24, "Chi", R.color.purple_700));
         addCategory(new CategoryItem(idCtg+"3","Điện thoại", R.drawable.ctg_phone_iphone_24, "Chi", R.color.black));
         addCategory(new CategoryItem(idCtg+"4","Y tế", R.drawable.ctg_medical_services_24, "Chi", R.color.aged_paper));
         addCategory(new CategoryItem(idCtg+"5","Tiền nhà", R.drawable.ctg_houses_24, "Chi", R.color.red_dark));
+        addCategory(new CategoryItem(idCtg+"11","Phí giao lưu", R.drawable.ctg_local_bar_24, "Chi", R.color.limegreen));
 
-        addCategory(new CategoryItem(idCtg+"6","Tiền lương", R.drawable.ctg_account_balance_wallet_24, "Thu", R.color.black));
+        addCategory(new CategoryItem(idCtg+"6","Tiền lương", R.drawable.ctg_account_balance_wallet_24, "Thu", R.color.teal_200));
         addCategory(new CategoryItem(idCtg+"7","Tiền thưởng", R.drawable.ctg_card_giftcard_24, "Thu", R.color.pale_violet_red));
         addCategory(new CategoryItem(idCtg+"8","Tiền phụ cấp", R.drawable.ctg_add_box_24, "Thu", R.color.holo_orange_dark));
         addCategory(new CategoryItem(idCtg+"9","Đầu tư", R.drawable.ctg_assured_workload_24, "Thu", R.color.red_dark));

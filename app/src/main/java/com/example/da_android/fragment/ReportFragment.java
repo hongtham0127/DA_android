@@ -2,7 +2,6 @@ package com.example.da_android.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,12 +72,12 @@ public class ReportFragment extends Fragment {
         }
     }
     int selectedTab = 1;
-    ArrayList<Transaction> transactions;
-    ArrayList<Transaction> transactionByCaterogy;
+    LinearLayout typeChiLayout, typeThuLayout;
     TextView currentDate, rangeDate, sumChi, sumThu, sumAll;
     Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
     SimpleDateFormat dateFormat = new SimpleDateFormat("MM/yyyy", Locale.ENGLISH);
     ImageButton nextButton,backButton;
+    TextView txtChi,txtThu;
     List<Date> dateList = new ArrayList<>();
     DB db = new DB();
     @Override
@@ -86,11 +85,11 @@ public class ReportFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_report, container, false);
-        final LinearLayout typeChiLayout = view.findViewById(R.id.type_report_chi_layout);
-        final LinearLayout typeThuLayout = view.findViewById(R.id.type_report_thu_layout);
+        typeChiLayout = view.findViewById(R.id.type_report_chi_layout);
+        typeThuLayout = view.findViewById(R.id.type_report_thu_layout);
 
-        final TextView txtChi = view.findViewById(R.id.txt_report_type_chi);
-        final TextView txtThu = view.findViewById(R.id.txt_report_type_thu);
+        txtChi = view.findViewById(R.id.txt_report_type_chi);
+        txtThu = view.findViewById(R.id.txt_report_type_thu);
         nextButton = view.findViewById(R.id.btn_report_date_next);
         backButton = view.findViewById(R.id.btn_report_date_back);
         currentDate = view.findViewById(R.id.txt_report_currentDate);
@@ -99,41 +98,15 @@ public class ReportFragment extends Fragment {
         sumThu = view.findViewById(R.id.txt_report_tien_thu);
         sumAll = view.findViewById(R.id.txt_report_tien_tong);
 
-        SharedPreferences sharedPref = getActivity().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("viewCategory", "report");
-        editor.apply();
         setUpCalendar();
         setUpStatisticsBar();
-
-        if(selectedTab == 1)
-        {
-            getActivity()
-                    .getSupportFragmentManager()
-                    .beginTransaction()
-                    .setReorderingAllowed(true)
-                    .replace(R.id.frame_container_report, new ReportChartFragment("Chi", dateFormat.format(calendar.getTime())))
-                    .commit();
-
-            typeChiLayout.setBackgroundResource(R.drawable.select_type_round);
-            txtChi.setTextColor(getResources().getColor(android.R.color.white));
-        }
-        if(selectedTab == 2)
-        {
-            getActivity()
-                    .getSupportFragmentManager()
-                    .beginTransaction()
-                    .setReorderingAllowed(true)
-                    .replace(R.id.frame_container_report, new ReportChartFragment("Thu", dateFormat.format(calendar.getTime())))
-                    .commit();
-
-            typeThuLayout.setBackgroundResource(R.drawable.select_type_round);
-            txtThu.setTextColor(getResources().getColor(android.R.color.white));
-        }
+        setUpReport();
+        setUpFrame();
 
         typeChiLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                setUpReport();
                 if(selectedTab != 1)
                 {
                     getActivity()
@@ -156,6 +129,7 @@ public class ReportFragment extends Fragment {
         typeThuLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                setUpReport();
                 if(selectedTab != 2)
                 {
                     getActivity()
@@ -180,6 +154,7 @@ public class ReportFragment extends Fragment {
                 calendar.add(Calendar.MONTH, -1);
                 setUpCalendar();
                 setUpStatisticsBar();
+                setUpFrame();
             }
         });
 
@@ -189,10 +164,38 @@ public class ReportFragment extends Fragment {
                 calendar.add(Calendar.MONTH, 1);
                 setUpCalendar();
                 setUpStatisticsBar();
+                setUpFrame();
             }
         });
 
         return view;
+    }
+    private void setUpFrame()
+    {
+        if(selectedTab == 1)
+        {
+            getActivity()
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .setReorderingAllowed(true)
+                    .replace(R.id.frame_container_report, new ReportChartFragment("Chi", dateFormat.format(calendar.getTime())))
+                    .commit();
+
+            typeChiLayout.setBackgroundResource(R.drawable.select_type_round);
+            txtChi.setTextColor(getResources().getColor(android.R.color.white));
+        }
+        if(selectedTab == 2)
+        {
+            getActivity()
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .setReorderingAllowed(true)
+                    .replace(R.id.frame_container_report, new ReportChartFragment("Thu", dateFormat.format(calendar.getTime())))
+                    .commit();
+
+            typeThuLayout.setBackgroundResource(R.drawable.select_type_round);
+            txtThu.setTextColor(getResources().getColor(android.R.color.white));
+        }
     }
     private void setUpCalendar() {
         String currDate = dateFormat.format(calendar.getTime());
@@ -200,13 +203,12 @@ public class ReportFragment extends Fragment {
         dateList.clear();
         Calendar monthCalendar = (Calendar) calendar.clone();
         monthCalendar.set(Calendar.DAY_OF_MONTH, 1);
-        int fisrtDayofMonth = monthCalendar.get(Calendar.DAY_OF_WEEK)-1;
 
         Calendar calendarCrr = (Calendar) calendar.clone();
         calendarCrr.set(calendarCrr.DAY_OF_MONTH, calendar.getActualMaximum(calendarCrr.DAY_OF_MONTH));
         Date lastDayOfMonth = calendarCrr.getTime();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM");
-        String dateRange = " (" + dateFormat.format(fisrtDayofMonth) + " - " + dateFormat.format(lastDayOfMonth) + ")";
+        String dateRange = " (01/" + lastDayOfMonth.getMonth() + " - " + dateFormat.format(lastDayOfMonth) + ")";
 
         currentDate.setText(currDate);
         rangeDate.setText(dateRange);
@@ -224,8 +226,6 @@ public class ReportFragment extends Fragment {
                 sum[0] = 0;
                 sum[1] = 0;
                 sum[2] = 0;
-                transactions = new ArrayList<>();
-                transactionByCaterogy = new ArrayList<>();
                 for(Transaction item : list)
                 {
                     Date date;
@@ -238,7 +238,6 @@ public class ReportFragment extends Fragment {
                             if(item.getType().equals("Chi"))
                             {
                                 sum[0] += item.getMoney();
-                                transactions.add(item);
                             }
                             else
                             {
@@ -267,14 +266,6 @@ public class ReportFragment extends Fragment {
                 }
                 sum[2] = sum[1]-sum[0];
                 sumAll.setText(String.valueOf(sum[2])+"đ");
-                if(sum[2] > 0 )
-                {
-                    sumAll.setTextColor(Color.parseColor("#002BFF"));
-                }
-                else
-                {
-                    sumAll.setTextColor(Color.parseColor("#FF0000"));
-                }
             }
 
             @Override
@@ -282,5 +273,12 @@ public class ReportFragment extends Fragment {
             }
         });
 
+    }
+    private void setUpReport()
+    {
+        SharedPreferences sharedPref = getActivity().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("viewCategory", "report");
+        editor.apply();
     }
 }

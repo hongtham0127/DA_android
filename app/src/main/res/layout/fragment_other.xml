@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6E6E6"
+    tools:context=".fragment.OtherFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:id="@+id/head_other"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Khác"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_annual_report"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/baseline_bar_chart_24"
+        android:drawableTint="@color/holo_orange_dark"
+        android:textAlignment="viewStart"
+        android:text="  Báo cáo năm"
+        android:textSize="18dp"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/btn_all_time_annual_report"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="120dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/baseline_bar_chart_24"
+        android:drawableTint="@color/holo_orange_dark"
+        android:textAlignment="viewStart"
+        android:text="  Báo cáo toàn kì"
+        android:textSize="18dp"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/btn_category_all_time_annual_report"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="190dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/baseline_pie_chart_outline_24"
+        android:drawableTint="@color/holo_orange_dark"
+        android:textAlignment="viewStart"
+        android:text="  Báo cáo danh mục toàn kì"
+        android:textSize="18dp"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="260dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/baseline_logout_24"
+        android:drawableTint="@color/red"
+        android:textAlignment="viewStart"
+        android:text="  Đăng xuất"
+        android:textSize="18dp"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="330dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/baseline_cancel_presentation_24"
+        android:drawableTint="@color/red"
+        android:textAlignment="viewStart"
+        android:text="  Xóa tất cả dữ liệu"
+        android:textColor="@color/red"
+        android:textSize="18dp"
+        android:textAllCaps="false"/>
+</FrameLayout>

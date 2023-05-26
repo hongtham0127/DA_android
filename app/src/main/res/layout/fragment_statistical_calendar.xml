@@ -11,15 +11,16 @@
     <LinearLayout
         android:id="@+id/head"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="50dp"
+        android:padding="10dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lịch"
             android:textColor="@color/black"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
             android:textSize="20dp"
+            android:layout_weight="1"
             />
 
         <ImageButton
@@ -27,7 +28,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="300dp"
             android:background="@drawable/baseline_search_24"
             android:backgroundTint="#FF5722" />
 

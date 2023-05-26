@@ -36,7 +36,7 @@ android {
 dependencies {
     implementation platform('com.google.firebase:firebase-bom:32.0.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
-//    Báo cáo
+//    Report
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 //============
     implementation 'androidx.appcompat:appcompat:1.6.1'

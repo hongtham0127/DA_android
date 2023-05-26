@@ -10,19 +10,12 @@
     <LinearLayout
         android:id="@+id/header_nav_edit_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_gravity="top"
         android:gravity="center"
         android:background="#E6E6E6"
         android:padding="10dp"
         android:weightSum="4">
-        <ImageButton
-            android:id="@+id/btn_report_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/baseline_arrow_back_24"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="#FF5722"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,7 +40,6 @@
         android:paddingTop="8dp"
         android:background="@color/white"
         android:paddingBottom="8dp">
-
         <ImageButton
             android:id="@+id/btn_report_date_back"
             android:layout_width="40dp"
@@ -156,7 +148,7 @@
             android:layout_height="wrap_content"
             android:text="0đ"
             android:textStyle="bold"
-            android:textColor="#002BFF"/>
+            android:textColor="@color/black"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/header_nav_type"
@@ -197,6 +189,7 @@
                 android:textColor="@color/holo_orange_dark"/>
         </LinearLayout>
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/frame_container_report"
         android:layout_width="match_parent"

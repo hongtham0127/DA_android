@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -50,9 +51,11 @@ public class ReportChartFragment extends Fragment {
         // Required empty public constructor
     }
     public ReportChartFragment(String type, String currentDate) {
-
         this.type = type;
         this.currentDate = currentDate;
+    }
+    public ReportChartFragment(String type) {
+        this.type = type;
     }
 
     /**
@@ -83,6 +86,7 @@ public class ReportChartFragment extends Fragment {
     }
     DB db = new DB();
     GridView gvReport;
+    TextView txtMess;
     ArrayList<Transaction> transactions;
     ArrayList<Transaction> transactionByCategory;
     @Override
@@ -91,6 +95,7 @@ public class ReportChartFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_report_chart, container, false);
         gvReport = view.findViewById(R.id.gv_report_transaction);
+        txtMess = view.findViewById(R.id.txt_mess);
         SharedPreferences sharedPref = getActivity().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
         String username = sharedPref.getString("username", null);
         PieChart pieChart = view.findViewById(R.id.pieChart);
@@ -105,22 +110,29 @@ public class ReportChartFragment extends Fragment {
 
                 transactions = new ArrayList<>();
                 transactionByCategory = new ArrayList<>();
-                for(Transaction item : list)
-                {
-                    Date date;
-                    Date date1;
-                    try {
-                        date = dateFormat.parse(item.getTrxDate());
-                        date1 = dateFormat1.parse(currentDate);
-                        if(date.getMonth() == date1.getMonth())
-                        {
-                            if(item.getType().equals(type))
-                            {
-                                transactions.add(item);
+                if(currentDate != null) {
+                    for (Transaction item : list) {
+                        Date date;
+                        Date date1;
+                        try {
+                            date = dateFormat.parse(item.getTrxDate());
+                            date1 = dateFormat1.parse(currentDate);
+                            if (date.getMonth() == date1.getMonth()) {
+                                if (item.getType().equals(type)) {
+                                    transactions.add(item);
+                                }
                             }
+                        } catch (ParseException e) {
+                            throw new RuntimeException(e);
                         }
-                    } catch (ParseException e) {
-                        throw new RuntimeException(e);
+                    }
+                }
+                else
+                {
+                    for (Transaction item : list) {
+                        if (item.getType().equals(type)) {
+                            transactions.add(item);
+                        }
                     }
                 }
 
@@ -149,45 +161,19 @@ public class ReportChartFragment extends Fragment {
                         }
                     }
                 }
-                setUpGridTransaction(transactionByCategory);
-                if(type.equals("Chi"))
+                if(transactionByCategory.size() == 0)
                 {
-                    db.readDataCategoryChi(new DB.OnCategoryDataLoadedListener() {
-                        @Override
-                        public void onCategoryDataLoaded(ArrayList<CategoryItem> list) {
-                            for (Transaction transaction : transactionByCategory)
-                            {
-                                for (CategoryItem categoryItem : list)
-                                {
-                                    if(transaction.getIdCtg().equals(categoryItem.getIdCtg()))
-                                    {
-                                        visitors.add(new PieEntry(transaction.getMoney(),categoryItem.getName()));
-                                        int color = ContextCompat.getColor(getContext(), categoryItem.getColor());
-                                        colors.add(color);
-                                    }
-                                }
-                            }
-                            PieDataSet pieDataSet = new PieDataSet(visitors,"Chi");
-                            pieDataSet.setColors(colors);
-                            pieDataSet.setValueTextColor(Color.WHITE);
-                            pieDataSet.setValueTextSize(15f);
-
-                            PieData pieData = new PieData(pieDataSet);
-
-                            pieChart.setData(pieData);
-                            pieChart.animate();
-                            pieChart.invalidate();
-                        }
-
-                        @Override
-                        public void onCategoryDataError(String errorMessage) {
-
-                        }
-                    });
+                    txtMess.setText("Không có dữ liệu");
+                    gvReport.setAdapter(null);
+                    pieChart.setData(null);
+                    pieChart.invalidate();
+                    pieChart.setVisibility(View.INVISIBLE);
                 }
-                else
-                {
-                    db.readDataCategoryThu(new DB.OnCategoryDataLoadedListener() {
+                else {
+                    txtMess.setText("");
+                    setUpGridTransaction(transactionByCategory);
+                    pieChart.setVisibility(View.VISIBLE);
+                    db.readDataCategory(new DB.OnCategoryDataLoadedListener() {
                         @Override
                         public void onCategoryDataLoaded(ArrayList<CategoryItem> list) {
                             for (Transaction transaction : transactionByCategory)
@@ -202,7 +188,7 @@ public class ReportChartFragment extends Fragment {
                                     }
                                 }
                             }
-                            PieDataSet pieDataSet = new PieDataSet(visitors,"Thu");
+                            PieDataSet pieDataSet = new PieDataSet(visitors,type);
                             pieDataSet.setColors(colors);
                             pieDataSet.setValueTextColor(Color.WHITE);
                             pieDataSet.setValueTextSize(15f);

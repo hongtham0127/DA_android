@@ -2,7 +2,6 @@ package com.example.da_android.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,11 +10,11 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.da_android.DB;
-import com.example.da_android.MainActivity;
 import com.example.da_android.R;
 import com.example.da_android.adapter.TransactionGridAdapter;
 import com.example.da_android.model.CategoryItem;
@@ -56,15 +55,20 @@ public class SearchTransactionActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(txtSearch.getText().toString().equals(""))
+                {
+                    Toast.makeText(context, "Hãy nhập danh mục cần tìm", Toast.LENGTH_SHORT).show();
+                }
+                else {
                 performSearch(txtSearch.getText().toString());
+                }
             }
         });
 

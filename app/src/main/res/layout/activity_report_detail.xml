@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".activity.ReportDetailActivity">
     <LinearLayout
-        android:id="@+id/header_nav_edit_input"
+        android:id="@+id/header_nav_report_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
@@ -15,7 +15,7 @@
         android:background="#E6E6E6"
         android:padding="10dp">
         <ImageButton
-            android:id="@+id/btn_edit_back"
+            android:id="@+id/btn_report_detail_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/baseline_arrow_back_24"
@@ -48,8 +48,7 @@
         android:id="@+id/barChart"
         android:layout_width="match_parent"
         android:layout_marginTop="2dp"
-        android:layout_height="300dp"
-        />
+        android:layout_height="350dp"/>
     <GridView
         android:id="@+id/gv_report_detail_transaction"
         android:layout_width="match_parent"

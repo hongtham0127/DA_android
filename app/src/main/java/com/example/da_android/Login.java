@@ -24,6 +24,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.layout_login);
         TextView txt_username = (TextView) findViewById(R.id.txt_username);
         TextView txt_password = (TextView) findViewById(R.id.txt_password);
+        TextView forgotPass = (TextView) findViewById(R.id.forgot_password);
 
         Button btn_login = (Button) findViewById(R.id.btnlogin);
         Button btn_create = (Button) findViewById(R.id.btnCreate);
@@ -70,6 +71,14 @@ public class Login extends AppCompatActivity {
                 else {
                     Toast.makeText(Login.this,"Vui lòng nhập đủ thông tin",Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        forgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, EmailSenderActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -152,7 +152,7 @@ public class StatisticalCalendarFragment extends Fragment {
         calendarCrr.set(calendarCrr.DAY_OF_MONTH, calendar.getActualMaximum(calendarCrr.DAY_OF_MONTH));
         Date lastDayOfMonth = calendarCrr.getTime();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM");
-        String dateRange = " (" + dateFormat.format(fisrtDayofMonth) + " - " + dateFormat.format(lastDayOfMonth) + ")";
+        String dateRange = " (01/" + (lastDayOfMonth.getMonth()+1) + " - " + dateFormat.format(lastDayOfMonth) + ")";
 
         currentDate.setText(currDate);
         rangeDate.setText(dateRange);

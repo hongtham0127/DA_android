@@ -69,6 +69,7 @@ public class TransactionGridAdapter extends ArrayAdapter {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("viewCategory", null);
         editor.apply();
+
         TextView dateDetail = view.findViewById(R.id.txt_date_detail);
         TextView sumDetail = view.findViewById(R.id.txt_sum_detail);
         GridView gvDetailItem = view.findViewById(R.id.gv_detail_item);

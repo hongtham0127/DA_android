@@ -116,6 +116,7 @@ public class InputTypeChiFragment extends Fragment {
             public void onCategoryDataLoaded(ArrayList<CategoryItem> list) {
                 ItemCategoryAdapter adapter = new ItemCategoryAdapter(getActivity(), R.layout.layout_item_danhmuc, list, "Chi", null);
                 gvDanhMuc.setAdapter(adapter);
+                ctg_selected = list.get(0);
             }
 
             @Override
@@ -153,7 +154,15 @@ public class InputTypeChiFragment extends Fragment {
 
                 final String idCtg = ctg_selected.getIdCtg();
                 final String ghiChu = edit_ghichu.getText().toString();
-                final int tienChi = Integer.parseInt(edit_tienchi.getText().toString());
+                final int tienChi;
+                if(edit_tienchi.getText().toString().equals(""))
+                {
+                    tienChi =0;
+                }
+                else
+                {
+                    tienChi = Integer.parseInt(edit_tienchi.getText().toString());
+                }
                 SharedPreferences sharedPref = getActivity().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
                 final String username = sharedPref.getString("username", null);
                 String trxDate = btn_lich.getText().toString();
